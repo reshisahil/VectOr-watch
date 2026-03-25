@@ -4,15 +4,20 @@ Intelligent. Adaptive. Explainable.
 Real-time trust scoring for IoT devices that catches what rule-based systems miss.
 
 
-The Problem
+# The Problem
    Traditional IoT security only catches obvious rule violations.  Modern attackers use low-and-slow attacks — gradually drifting a device's behavior over days or weeks, staying below every detection threshold while exfiltrating data the entire time. Existing systems see nothing wrong.
 
-What vector-watch Does
+# What vector-watch Does
    Vector-watch continuously monitors IoT device network telemetry and assigns every device a dynamic Trust Score (0–100) using 4 detection layers running simultaneously:
-   ModuleWhat it does🔴 Hard Violation EngineInstantly flags  blacklisted IPs, unauthorized ports, threshold breaches🟠 Drift Detection EngineZ-score statistical analysis catches gradual behavioral drift over days🔵 ML Anomaly ModuleIsolation Forest model detects subtle multi-feature anomalies🟢 Trust Score EngineCombines all signals into a bounded 0–100 score with severity classification
+
+   # Module What it does
+   🔴 Hard Violation-- EngineInstantly flags  blacklisted IPs, unauthorized ports, threshold breaches
+   🟠 Drift Detection-- EngineZ-score statistical analysis catches gradual behavioral drift over days
+   🔵 ML Anomaly Module -- Isolation Forest model detects subtle multi-feature anomalies
+   🟢 Trust Score Engine -- Combines all signals into a bounded 0–100 score with severity classification
    Every score comes with a plain-language explanation — not just a number, but exactly why a device was flagged.
 
-🔑 Key Innovations
+# Key Innovations
 
 Explainability First — every decision is human-readable, for both analysts and non-technical stakeholders
 Hybrid Detection — three independent layers mean no single point of failure
