@@ -1,0 +1,4 @@
+device_id,packets_per_min,baseline,port_used,failed_connections
+cam_01,140,100,6667,20
+cam_02,90,100,443,2
+cam_03,200,100,80,5
