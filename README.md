@@ -11,10 +11,10 @@ Real-time trust scoring for IoT devices that catches what rule-based systems mis
    Vector-watch continuously monitors IoT device network telemetry and assigns every device a dynamic Trust Score (0–100) using 4 detection layers running simultaneously:
 
    # Module What it does
-   🔴 Hard Violation-- EngineInstantly flags  blacklisted IPs, unauthorized ports, threshold breaches
-   🟠 Drift Detection-- EngineZ-score statistical analysis catches gradual behavioral drift over days
-   🔵 ML Anomaly Module -- Isolation Forest model detects subtle multi-feature anomalies
-   🟢 Trust Score Engine -- Combines all signals into a bounded 0–100 score with severity classification
+   - 🔴 Hard Violation-- EngineInstantly flags  blacklisted IPs, unauthorized ports, threshold breaches
+   - 🟠 Drift Detection-- EngineZ-score statistical analysis catches gradual behavioral drift over days
+   - 🔵 ML Anomaly Module -- Isolation Forest model detects subtle multi-feature anomalies
+   - 🟢 Trust Score Engine -- Combines all signals into a bounded 0–100 score with severity classification
    Every score comes with a plain-language explanation — not just a number, but exactly why a device was flagged.
 
 # Key Innovations
