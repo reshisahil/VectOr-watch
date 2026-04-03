@@ -68,13 +68,9 @@
 {% if result %}
 <div class="result-box">
 
-    <p>{{ result.message }}</p>
-
-    <hr>
-
-    <p><b>Packets:</b> {{ result.packets }}</p>
-    <p><b>Failed Connections:</b> {{ result.failed }}</p>
-    <p><b>ML Penalty:</b> {{ result.ml_penalty }}</p>
+    <h2>Trust Score: {{ result.trust_score }}</h2>
+    <h3>{{ result.severity }}</h3>
+    <p>{{ result.explanation }}</p>
 
 </div>
 {% endif %}

@@ -1,20 +1,44 @@
+from hard_rules import check_hard_rules
+from drift import detect_drift
+from ml_model import train_model, get_ml_penalty
 from trust_score import calculate_trust_score
 from explain import generate_explanation
+import pandas as pd
 
-def core_engine(arif_output, saffwan_output):
 
-    hard_penalty = arif_output["hard_penalty"]
-    drift_penalty = arif_output["drift_penalty"]
-    reasons = arif_output["reasons"]
+# Train ML model once
+data = pd.DataFrame([
+    [100, 2],
+    [105, 3],
+    [98, 1]
+])
 
-    ml_penalty = saffwan_output["ml_penalty"]
+model = train_model(data)
 
-    # calculate trust
+
+def full_pipeline(input_data):
+
+    # 🔹 ARIF PART
+    hard_penalty, hard_reasons = check_hard_rules(input_data)
+    drift_penalty, drift_reason = detect_drift(input_data)
+
+    reasons = hard_reasons
+    if drift_penalty > 0:
+        reasons.append(drift_reason)
+
+    # 🔹 SAFFWAN PART (ML)
+    record = [
+        input_data["packets_per_min"],
+        input_data["failed_connections"]
+    ]
+
+    ml_penalty = get_ml_penalty(model, record)
+
+    # 🔹 YOUR PART
     trust_score = calculate_trust_score(
         hard_penalty, drift_penalty, ml_penalty
     )
 
-    # generate explanation
     result = generate_explanation(
         trust_score, reasons, ml_penalty
     )
